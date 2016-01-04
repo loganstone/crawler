@@ -43,13 +43,13 @@ func parseFollowing(doc *html.Node, urls chan string) <-chan string {
 		f = func(n *html.Node) {
 			if n.Type == html.ElementNode && n.Data == "img" { // img tag
 				for _, a := range n.Attr {
+
 					if a.Key == "class" && a.Val == "avatar left" {
 						for _, a := range n.Attr {
 							if a.Key == "alt" {
 								name <- a.Val
 								break
 							}
-
 						}
 					}
 
@@ -125,7 +125,6 @@ func main() {
 			worker(done, urls, c)
 			wg.Done()
 		}()
-
 	}
 
 	go func() {
@@ -148,4 +147,3 @@ func main() {
 		}
 	}
 }
-
