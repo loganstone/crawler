@@ -18,7 +18,6 @@ type StarsResult struct {
 	repo string
 }
 
-
 type FetchedUrl struct {
 	m map[string]error
 	sync.Mutex
@@ -40,7 +39,6 @@ type GitHubFollowing struct {
 	result     chan FollowingResult
 	url        string
 }
-
 
 type GitHubStars struct {
 	fetchedUrl  *FetchedUrl
